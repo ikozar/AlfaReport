@@ -1,0 +1,168 @@
+<Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.urp.xsd">
+	<QuerySections>
+<!--  -->
+		<Query name="torg_ref" table="torg_main" fKey="kod_org"/>
+
+		<Query name="tkls_main" fName="naimk_kls"/>
+		<Query name="torg_kls" type="SET">
+			<Link to="tkls_main" reference="kod_kls"/>
+		</Query>
+		<Query name="torg_svyaz" type="SET" table="torg_svyaz" fKey="kod_org,kod_sotr" fKey_="kod_org,kod_sotr,kod_pers">
+			<Link to="tkls_main" reference="kod_kls_svyaz"/>
+		</Query>
+		<Query name="torg_personal" sqlSubSelect_="SELECT p.kod_pers as key_field_, p.*, s.kod_org, s.kod_sotr 
+			FROM torg_personal p JOIN torg_sotr s USING(kod_pers)"
+			appendFld="kod_org,kod_sotr"
+			>
+			<!--Link to="torg_svyaz" reference="kod_org,kod_sotr,kod_pers"/-->
+			<Link to="tkls_main" alias="tkls_main_zvan" reference="kod_kls_zvan"/>
+			<Link to="tkls_main" alias="tkls_main_uzvan" reference="kod_kls_uzvan"/>
+			<Link to="tkls_main" alias="tkls_main_ustep" reference="kod_kls_ustep"/>
+		</Query>
+		<Query name="torg_sotr" type="SET" order="pr_rukovod DESC">
+			<Link to="torg_personal" reference="kod_pers"/>
+			<Link to="torg_svyaz" reference="kod_org,kod_sotr"/>
+			<Link to="tkls_main" alias="tkls_main_dolz" reference="kod_kls_dolz"/>
+			<Link to="tkls_main" alias="tkls_main_status" reference="kod_kls_status"/>
+		</Query>
+		<Query name="torg_podr" type="SET" collapseLevel="2"
+			fName="naimp_podr" fKey_="kod_podr" fKeyUp="kodv_podr" fRubr="rubrika_podr">
+			<Link to="torg_sotr" reference="kod_org,kod_podr"/>
+		</Query>
+		<Query name="torg_brekv">
+			<Link to="torg_ref" reference="kod_org_bank"/>
+		</Query>
+		<Query name="torg_address"
+			sqlSelect="SELECT t.is_yurid::smallint as key_field_, a.*, 18434 as kod_org, t.* FROM 
+				(SELECT n as is_yurid, (ARRAY['Физический','Юридический','Запасной'])[n+1] as type_addr FROM generate_series(0, 2) n) t LEFT JOIN
+				(SELECT * FROM torg_address WHERE kod_org IN (18434)) a USING(is_yurid)
+				ORDER BY t.is_yurid"
+		>
+			<Link to="tkls_main" alias="okato" reference="kod_kls_okato"/>
+			<!--Turn key="kod_org" on="is_yurid"/-->
+		</Query>
+		<!--Query name="is_yurid" type="SET" fName="naim" fKey_="is_yurid"
+			sqlSelect="SELECT 0 as key_field_, n as is_yurid, (ARRAY['Физический','Юридический'])[n+1] as naim FROM generate_series(0, 1) n">
+			<Link to="torg_address" reference="is_yurid"/>
+		</Query-->
+			
+		<Query name="MAIN" sqlSelect="SELECT *
+						FROM torgd_isp o
+						WHERE kod_org = 18434">
+			<Link to="torg_ref" reference="kodv_org"/>
+			<Link to="torg_address"/>
+			<Link to="torg_brekv" reference="kod_org"/>
+			<Link to="torg_svyaz" reference="kod_org,0"/>
+			<Link to="torg_podr" reference="kod_org"/>
+			<Link to="torg_kls" reference="kod_org"/>
+		</Query>
+	</QuerySections>
+
+	<StyleSections>
+		<Style for="torg_sotr" vertical-align="top"/>
+		<Style for="torg_podr" background-color="Beige"/>
+		<Style for="torg_podr_1" background-color="LavenderBlush"/>
+		<Style for="h" background-color="Beige"/>
+	</StyleSections>
+
+	<Defines>
+		<Define name="colAll" text="4"/>
+		<Define name="colRest1" text="3"/>
+		<Define name="colRest2" text="2"/>
+	</Defines>
+
+	<BandSections>
+<!-- Шаблоны групп teritory,store и тела (DETAL) отчета -->
+
+		<Band place="header" for="MAIN">
+			<Cell class="h" text="Имя полное"/>
+			<Cell field="naimp_org" colspan="%%#colRest1%%"/>
+			<BROW/>
+
+			<Cell class="h" text="Имя краткое"/>
+			<Cell field="naimk_org"/>
+			<Cell class="h" text="ОКПО"/>
+			<Cell field="shifr_okpo"/>
+			<BROW/>
+
+			<Cell class="h" text="ИНН"/>
+			<Cell field="inn_org"/>
+			<Cell class="h" text="КППУ"/>
+			<Cell field="kppu_org"/>
+			<BROW/>
+
+			<Cell class="h" text="Верхняя организация"/>
+			<Cell field="torg_ref.naimp_org" colspan="%%#colRest1%%"/>
+			<BROW/>
+
+			<Cell class="h" text="Примечание"/>
+			<Cell field="prim_org" colspan="%%#colRest1%%"/>
+			<BROW/>
+
+			<Cell class="h bold" text="Адреса" colspan="%%#colAll%%"/>
+			<BROW/>
+
+			<SetBand for="torg_address"/>
+
+			<Cell class="h bold" text="Связь с организацией" colspan="%%#colAll%%">
+				<CheckVisibility level="1"/>
+			</Cell>
+			<BROW/>
+			<SetBand for="torg_svyaz"/>
+
+			<!--Cell class="h bold" text="Сотрудники" colspan="%%#colAll%%">
+				<CheckVisibility level="3"/>
+			</Cell>
+			<BROW/>
+			<SetBand for="torg_podr"/-->
+			<SetTabCtrl class="h bold" text="Сотрудники" for="torg_podr"/>
+		</Band>
+
+		<Band for="torg_address">
+			<Cell class="h" text="%%type_addr%% адрес"/>
+			<Cell colspan="%%#colRest1%%" field="addr_org"/>
+			<BROW/>
+		</Band>
+
+		<Band for="torg_podr">
+			<!--Define name="LevelTotal" text="(%%rubrika_podr.STRLEN%%)/2" scope_="data"/-->
+			<Define name="lShift" text="(%%LevelTotal%%-1)*40+5"/>
+			<Define name="isUpr" text="%%LevelTotal%%==1"/>
+			<Cell class="bold" text_="%%naimp_podr%%" colspan="%%#colAll%%" style="padding-left: %%#lShift%%px;">
+				<!--CheckVisibility condition="%%#LevelTotal%%%%LT%%=2"/-->
+				<CheckVisibility/>
+				%%naimp_podr%% (%%#lShift%%-%%LevelTotal%%-%%#isUpr%%)
+			</Cell>
+			<BROW/>
+			<SetBand for="torg_sotr"/>
+		</Band>
+
+		<Band for="torg_sotr">
+			<Define name="colSvyaz" text="%%torg_svyaz.COUNT%%" min="1"/>
+			<Cell class="h" rowspan="%%#colSvyaz%%" field="tkls_main_dolz.naimk_kls"/>
+			<Cell colspan="1" rowspan="%%#colSvyaz%%" field="torg_personal.fio_pers"/>
+			<BROW end="none"/>
+			<SetBand for="torg_svyaz" alias="torg_svyaz_sotr"/>
+			<ifCondition for="%%torg_svyaz.COUNT%%" value="0">
+				<Cell colspan="%%#colRest2%%"/>
+				<BROW begin="none"/>
+			</ifCondition>
+		</Band>
+
+		<Band for="torg_svyaz">
+			<Cell field="tkls_main.naimk_kls"/>
+			<Cell colspan="%%#colRest1%%" field="nomer_svyaz"/>
+			<BROW/>
+		</Band>
+
+		<Band for="torg_svyaz_sotr:torg_svyaz">
+			<Cell field="tkls_main.naimk_kls"/>
+			<Cell colspan="1" field="nomer_svyaz"/>
+			<BROW begin="2.." end="all"/>
+		</Band>
+
+	</BandSections>
+
+	<Print/>
+
+</Report>

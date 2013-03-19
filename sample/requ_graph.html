@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"-->
+<html>
+<head>
+<title>ReportBuilder</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+<style>
+body {
+background-color: LightYellow;
+padding: 0px;
+margin: 20px;
+}
+th {
+border: 1px solid black;
+}
+ul {
+margin: 0px 9px;
+padding: 0px;
+}
+li.m {
+display: block;
+list-style-type: none;
+padding: 5px;
+height: 20px;
+font-family: Georgia;
+font-size: 15px;
+font-weight: 900px;
+color: black;
+}
+li.l {
+float: left;
+border-right: 2px solid black;
+background-color: LightSkyBlue;
+}
+li.h {
+margin-bottom: 5px;
+border: 2px outset black;
+background-color: GoldenRod;
+color: black;
+}
+
+a.local {
+text-decoration: none;
+color: inherit;
+}
+span a.hl {
+color: Crimson;
+}
+
+pre {
+background-color: PeachPuff;
+}
+
+h1 {
+font-size: 18px;
+}
+h2 {
+font-size: 15px;
+margin: 6px;
+}
+p {
+x-text-indent: 10px;
+}
+</style>
+
+<body>
+<h2>Требуется построить отчет по продажам видов техники, сгруппировав:</h2>
+<table border="1" style="empty-cells: show; width: 60%; border-collapse: collapse">
+	<tr>
+		<th rowspan="3"></th>
+		<th colspan="5">
+			по кварталам
+		</th>
+	</tr>
+	<tr>
+		<th>...</th>
+		<th colspan="3">
+			по стране экспортеру (teritory)
+		</th>
+		<th>...</th>
+	</tr>
+	<tr>
+		<th>...</th>
+		<th>...</th>
+		<th>
+			по фирме-производителю (vendor)
+		</th>
+		<th>...</th>
+		<th>...</th>
+	</tr>
+	<tr>
+		<td>
+			<b>по региону (teritory)</b>
+		</td>
+		<td colspan="5" rowspan="2"></td>
+	</tr>
+	<tr>
+		<td>
+			<b>по магазинам (store)</b>
+		</td>
+	</tr>
+</table>
+
+<p>Кроме этого, по регионам/кварталам вывести объемы поставленной техники и вычислить % продаж от поставок.<BR/>
+Кроме этого, по магазинам вывести директора и его заместителей.<BR/>
+Технику отсортировать по убыванию годовых (!) объемов продаж, вывести 3 лучших и худших позиции.<BR/>
+Кроме этого вывести общий итог продаж по видам техники (только второй уровень иерархического справочника)<BR/>
+</p>
+
+<h2>Схема операций выборки данных:</h2>
+
+1. Выполняется запрос <b>MAIN</b>. Обратите внимание, продажи (realizations) пересекаются только с таблицами, 
+необходимыми для получения Primary Key разрезов отчета, по которым осуществляется группировка.
+Поля наименований, сортировок и пр. (например наименование дислокации) в MAIN можно не включать.
+Сортировка по убыванию годовых объемов выполняется также в запросе
+<pre>
+SELECT st.id_ter as id_ter, sd.id_store as id_store, w.id_type_wares 
+	, date_part('quarter', r.date_realiz) as id_quarter, v.id_ter as id_ter_vendor
+	, w.id_vendor, sum(num_realiz) as num_realiz, sum(sum_realiz)::int4 as sum_realiz 
+FROM realiz.realizations r 
+	JOIN realiz.personal ps USING(id_pers) 
+	JOIN realiz.subdivision sd USING(id_subdiv) 
+	JOIN realiz.store st USING(id_store) 
+	JOIN realiz.wares w USING(id_wares) 
+	JOIN realiz.vendor v USING(id_vendor) 
+GROUP BY st.id_ter,sd.id_store, w.id_type_wares, date_part('quarter', r.date_realiz), v.id_ter
+	, w.id_vendor 
+ORDER BY st.id_ter,sd.id_store
+</pre>
+
+2. Выполняется запрос <b>vendor</b> для получения сведений о фирмах. Запрашиваются только фирмы,
+выбранные в MAIN.
+<pre>
+SELECT * FROM (SELECT id_vendor as key_field_, * FROM realiz.vendor) s 
+WHERE key_field_ IN ('1','2','3','4','5','6','7','8') 
+ORDER BY id_ter
+</pre>
+
+3. Выполняется запрос <b>teritory</b> для получения сведений о дислокации и магазинов и фирм-производителей 
+(их можно было разнести на два запроса, но для примера я решил совместить).
+При этом сначала отбираются элементы справочника, на которые есть ссылки из MAIN и из vendor, а,
+затем выбираются все верхние элементы иерархического справочника дислокации (см.  ).
+<pre>
+SELECT DISTINCT up.id_ter as key_field_, up.* 
+FROM realiz.teritory up 
+	JOIN realiz.teritory dn 
+		ON dn.rub_terit LIKE rtrim(up.rub_terit)||'%' 
+		AND dn.id_ter IN( '10','11','12','4','6','9') 
+ORDER BY rub_terit
+</pre>
+
+4. Выполняется запрос <b>type_wares_sum</b> для получения итоговых сведений о продажах по видам техники (2 уровня) и кварталам.
+На запрос никто не ссылается. Выводится в заголовке секции TOTAL (ВСЕГО) (хотя нично не мешает использовать такие запросы в любой секции). 
+Выбранные записи выводятся отдельными строками.
+<pre>
+SELECT id_type_wares_level as id_type_wares, date_part('quarter', r.date_realiz) as id_quarter
+	, sum(sum_realiz)::int4 as sum_realiz 
+FROM realiz.realizations r 
+	JOIN realiz.wares USING(id_wares) 
+	JOIN realiz.v_type_wares USING(id_type_wares) 
+WHERE level_type_wares = 2 GROUP BY 1,2 ORDER BY 1
+</pre>
+
+5. Выполняется запрос <b>store</b> для получения сведений о магазинах, выбранных в MAIN.
+Запрос сортируется по наименованию магазина и вывод и магазинов и Detal (MAIN) будет
+осуществляться с учетом этой сортировки (к сожалению в тестовом примере их всего по одному на каждый населенный пункт)
+<pre>
+SELECT * FROM (SELECT id_store as key_field_, * FROM realiz.store) s 
+WHERE key_field_ IN ( '2','1','3') ORDER BY naim_store
+</pre>
+
+6. Выполняется запрос <b>delivery</b> для получения итоговых сведений о поставках  
+по местоположению и кварталам.
+<pre>
+SELECT * FROM (SELECT id_ter as key_field_, id_ter, id_quarter, sum(sum_deliv)::int4 as sum_deliv 
+	FROM realiz.delivery GROUP BY 1,2,3 ORDER BY 1) s 
+WHERE key_field_ IN ( '1','2','4','5','6','7','8','9','10','11','12')
+</pre>
+
+7. Выполняется запрос <b>type_wares</b> для получения сведений о типах товара, выбранных в MAIN и type_wares_sum (т.е. 2й и последний уровни справочника типов товара).
+Обратите внимание, названия типов хоть и выводятся в секции Detal (MAIN), но в запросе MAIN не запрашиваются. 
+Т.о. наименования не дублируются в MAIN, т.е. траффик меньше, в MAIN меньше пересечений, он проще и выполняется (во многих случаях) быстрее.   
+<pre>
+SELECT * FROM (SELECT id_type_wares as key_field_, * FROM realiz.type_wares) s 
+WHERE key_field_ IN ( '3','4','5','7','8','10','14','15','2','6','12') ORDER BY naim_type_wares
+</pre>
+
+8. Выполняется запрос <b>chief</b> для получения сведений о дирекции (в данном случае pr_rukovod > 0) магазинов.
+Запрашиваются только фирмы, выбранные в MAIN.
+Для каждого магазина выбирается множество строк с информацией о директорате, множество выводится в цикле
+в ячейке с наименованием магазина.
+<pre>
+SELECT * FROM (SELECT s.id_store as key_field_, p.fio_pers, p.pr_rukovod
+	, CASE p.pr_rukovod WHEN 1 THEN 'Начальник' ELSE 'Заместитель' END as dolz FROM realiz.subdivision s 
+	JOIN realiz.personal p USING(id_subdiv) WHERE p.pr_rukovod > 0 AND s.id_subdiv_parent = 0) s 
+WHERE key_field_ IN ( '2','1','3') ORDER BY fio_pers
+</pre>
+
+<BR/>
+
+В итоге получается следующий граф (store и teritory используются также для вывода групповых секций)
+<a style="color: Crimson;" href="sample2.html"> (пример №3) </a>.<BR/>
+<BR/>
+<IMG src="image/requ_graph.gif"/>
+
+</body>
+</html>

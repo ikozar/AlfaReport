@@ -1,0 +1,225 @@
+<Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\schema.urp.xsd">
+	<QuerySections>
+		<Query name="type_wares" table="realiz.type_wares" fName="naim_type_wares"/>
+<!-- Итоги продаж по группам товаров, поворот по кварталам -->
+		<Query name="type_wares_sum" type="SET" sum="sum_realiz" sqlSelect="SELECT id_type_wares_level as id_type_wares, EXTRACT(quarter FROM r.date_realiz) as id_quarter, sum(sum_realiz) as sum_realiz
+						FROM realiz.realizations r
+							JOIN realiz.wares USING(id_wares)
+							JOIN realiz.v_type_wares USING(id_type_wares)
+						WHERE level_type_wares = 2
+						GROUP BY 1,2
+						ORDER BY 1">
+			<Sort order="sum_realiz" reverse="true"/>
+			<Link to="type_wares" reference="id_type_wares"/>
+			<Turn key="id_type_wares" on="id_quarter"/>
+		</Query>
+<!-- Поставки техники в регионы, поворот по кварталам -->
+		<Query name="delivery" type="DATA" sum="sum_deliv" sqlSubSelect="SELECT id_ter as key_field_, id_ter, id_quarter, sum(sum_deliv) as sum_deliv
+						FROM realiz.delivery
+						GROUP BY 1,2,3
+						ORDER BY 1">
+			<Turn key="id_ter" on="id_quarter"/>
+		</Query>
+		<Query name="teritory" table="realiz.teritory" fName="naim_ter" 
+			fKeyUp="id_ter_parent" fRubr="rub_terit" order="rub_terit">
+			<Link to="delivery" reference="id_ter"/>
+		</Query>
+		<Query name="chief" type="SET" table="realiz.personal" fName="fio_pers" sqlSubSelect="SELECT s.id_store as key_field_, p.fio_pers, p.pr_rukovod,
+				CASE p.pr_rukovod WHEN 1 THEN 'Начальник' ELSE 'Заместитель' END as dolz,
+				CASE p.pr_rukovod WHEN 1 THEN 'Director' ELSE 'Deputy director' END as dolz_e
+				FROM realiz.subdivision s JOIN realiz.personal p USING(id_subdiv)
+				WHERE p.pr_rukovod > 0 AND s.id_subdiv_parent = 0"/>
+		<Query name="store" table="realiz.store" fName="naim_store">
+			<Link to="chief" reference="id_store"/>
+		</Query>
+		<Query name="subdivision" table="realiz.subdivision" fName="naim_subdiv"/>
+		<Query name="vendor" table="realiz.vendor" fName="naim_vendor" order="id_ter"/>
+		<Query name="quarter" table="realiz.quarter" fName="naim" sqlSelect="SELECT n as key_field_, concat(cast(n as char),'й кв.','') as naim FROM generate_series WHERE n &lt;= 4"/>
+<!-- Выборка MAIN, поворот по кварталам, странам и фирмам -->
+		<Query name="MAIN" sum="sum_realiz" sqlSelect="SELECT st.id_ter as id_ter, sd.id_store as id_store, w.id_type_wares
+						, EXTRACT(quarter FROM r.date_realiz) as id_quarter, v.id_ter as id_ter_vendor, w.id_vendor
+						, sum(num_realiz) as num_realiz
+						, sum(sum_realiz) as sum_realiz
+						FROM realiz.realizations r
+							JOIN realiz.personal ps USING(id_pers)
+							JOIN realiz.subdivision sd USING(id_subdiv)
+							JOIN realiz.store st USING(id_store)
+							JOIN realiz.wares w USING(id_wares)
+							JOIN realiz.vendor v USING(id_vendor)
+						GROUP BY st.id_ter,sd.id_store,w.id_type_wares,EXTRACT(quarter FROM r.date_realiz),v.id_ter,w.id_vendor
+						ORDER BY st.id_ter,sd.id_store">
+			<Sort order="sum_realiz" reverse="true"/>
+			<Group to="teritory" reference="id_ter"/>
+			<Group to="store" reference="id_store">
+				<Sort order="sum_realiz" reverse="true"/>
+			</Group>
+			<Link to="quarter" reference="id_quarter"/>
+			<Link to="vendor" reference="id_vendor"/>
+			<Link to="teritory" reference="id_ter_vendor"/>
+			<Link to="type_wares_sum"/>
+			<Link to="type_wares" reference="id_type_wares"/>
+			<Turn key="id_store,id_type_wares" on="id_quarter,id_ter_vendor,id_vendor"/>
+		</Query>
+	</QuerySections>
+
+	<StyleSections>
+		<Style for="TOTAL" background-color="Beige" font-size="13px;" font-weight="bold" color="darkblue"/>
+		<Style for="GOOD_SALE" background-color="Azure"/>
+		<Style for="BAD_SALE" background-color="AntiqueWhite"/>
+	</StyleSections>
+
+	<BandSections>
+		<Band for="HEAD">
+<!-- Шаблон заголовка таблицы -->
+			<Cell text="Наименование" rowspan="4"/>
+			<Cell text="Объем поставок" rowspan="4"/>
+			<Cell text="Сумма продаж" rowspan="4"/>
+			<TurnCells on="level">
+				<Expr>
+						$colSpan = %%TURN.mCount%%+3;
+					</Expr>
+				<Cell colspan="$colSpan">
+					<CheckVisibility mask="1001"/>
+						%%TURNNAME%%
+					</Cell>
+			</TurnCells>
+			<BROW/>
+			<TurnCells on="level">
+				<Cell text="Поставлено" rowspan="3"/>
+				<Cell text="Продано" rowspan="3"/>
+				<Cell text="%" rowspan="3"/>
+				<Cell text="Продажи по фирмам" colspan="%%TURN.mCount%%"/>
+			</TurnCells>
+			<BROW/>
+			<TurnCells on="level">
+				<TurnCells>
+					<Cell text="%%TURNNAME%%" colspan="%%TURN.mCount%%"/>
+				</TurnCells>
+			</TurnCells>
+			<BROW/>
+			<TurnCells on="level">
+				<TurnCells>
+					<TurnCells>
+						<Cell text="%%TURNNAME%%"/>
+					</TurnCells>
+				</TurnCells>
+			</TurnCells>
+			<BROW/>
+		</Band>
+
+<!-- Шаблон итогов отчета, выводится в начале -->
+		<Band place="header" for="TOTAL">
+			<Expr text="$naim_type_wares='naim_type_wares' . $oReport->params['lang'];"/>
+			<Cell text="Итог по группам товаров:" rowspan="(count(%%type_wares_sum%%))"/>
+			<SetBand for="type_wares_sum">
+				<Cell text="%%type_wares.$naim_type_wares%%"/>
+				<Cell text="%%sum_realiz%%" type="float"/>
+				<TurnCells>
+					<Cell/>
+					<Cell text="%%TURNINDEX.sum_realiz%%" type="float"/>
+					<Cell/>
+					<TurnCells>
+						<TurnCells>
+							<Cell/>
+						</TurnCells>
+					</TurnCells>
+				</TurnCells>
+				<BROW/>
+			</SetBand>
+			<BROW/>
+		</Band>
+
+<!-- Шаблоны групп teritory,store и тела (DETAL) отчета -->
+		<Band place="header" for="teritory,store,MAIN" paddingLevel="10">
+
+			<SwitchBand>
+				<CaseBand for="MAIN">
+					<Expr>
+						<![CDATA[
+//<!-- Динамическое изменение стиля секции -->
+							$naim_type_wares='naim_type_wares' . $oReport->params['lang'];
+							if ( %%NOMROW%% <= 4 )
+								$classBand .= ' GOOD_SALE';
+							elseif ( %%NOMROW%% > %%GROUP.mCount%% - 3 )
+								$classBand .= ' BAD_SALE';
+							else
+//<!-- пропуск строк в середине -->
+								return '';
+						]]>
+					</Expr>
+					<Cell text="%%NOMROW%%. %%type_wares.$naim_type_wares%%"/>
+				</CaseBand>
+				<CaseBand for="store">
+					<Expr text="$dolz='dolz' . $oReport->params['lang'];"/>
+					<Cell class=" nw t">
+						<![CDATA[
+							%%name%% (%%LevelTotal%%)<BR/>
+						]]>
+						<SetBand for="chief" separate=",%%BR%%" text="%%$dolz%% %%fio_pers%%"/>
+					</Cell>
+				</CaseBand>
+				<CaseBand for="other">
+					<Expr>
+						<![CDATA[
+							if ( %%LevelTotal%% == 1 )
+								return '';
+						]]>
+					</Expr>
+					<Cell style="padding-left: %%PAD_LEVEL%%px; ">
+						<CheckVisibility/>
+						%%name%%
+					</Cell>
+				</CaseBand>
+			</SwitchBand>
+
+			<SwitchBand>
+				<CaseBand for="teritory">
+					<Cell text="%%sum_deliv%%" type="float"/>
+				</CaseBand>
+				<CaseBand for="other">
+					<Cell/>
+				</CaseBand>
+			</SwitchBand>
+
+			<Cell text="%%sum_realiz%%" type="float"/>
+			<TurnCells on="level">
+
+				<SwitchBand>
+					<CaseBand for="teritory">
+						<Cell text="%%TURNINDEX.sum_deliv%%" type="float"/>
+						<Cell text="%%TURNINDEX.sum_realiz%%" type="float"/>
+						<Cell expr="(%%TURNINDEX.sum_deliv%% ? %%TURNINDEX.sum_realiz%%/%%TURNINDEX.sum_deliv%%*100 : 0)" type="float"/>
+					</CaseBand>
+					<CaseBand for="other">
+						<Cell/>
+						<Cell text="%%TURNINDEX.sum_realiz%%" type="float"/>
+						<Cell/>
+					</CaseBand>
+				</SwitchBand>
+
+				<TurnCells>
+					<TurnCells>
+						<Cell text="%%TURNINDEX.sum_realiz%%" type="float"/>
+					</TurnCells>
+				</TurnCells>
+			</TurnCells>
+
+			<SwitchBand>
+				<CaseBand for="MAIN">
+					<Expr>
+						<![CDATA[
+						if (%%NOMROW%% == 4)
+						{
+//<!-- Замена текста строки для средней строки -->
+							$sCells = '<TD style=\'background-color: LemonChiffon;\' colspan=' . $oReport->countCells . '> ... </TD>';
+						}
+						]]>
+					</Expr>
+				</CaseBand>
+			</SwitchBand>
+
+			<BROW/>
+		</Band>
+	</BandSections>
+	<Print/>
+</Report>

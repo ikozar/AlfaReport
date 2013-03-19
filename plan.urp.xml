@@ -1,0 +1,138 @@
+<Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\schema.urp.xsd">
+	<QuerySections>
+<!-- Выборки для группирования по территории (иерархическая группа) и по магазинам -->
+		<Query name="part_tree" table="partition_num_template" fKey="partition_id"
+			fKeyUp="parent_id" order="partition_num">
+		</Query>
+		<Query name="kcbc" table="kcbc" fKey="unit_id" fName="short_name"/>
+
+		<Query name="RASP" type="DATA" fKey="key_field_" sqlSelect="SELECT gm.nomen_id as key_field_, 
+						CASE gc.id_kls_pargoz WHEN 2 THEN 'PM' ELSE 'PP' END as is_pred_mo,
+						cr.unit_id_potr,
+						SUM(gm.num_goz_mc) as num_rasp,
+						SUM(gm.num_per_rem) as num_per_rem
+						FROM goz_cont_mc gm 
+							JOIN goz_content gc USING(id_gozc)
+							JOIN (SELECT DISTINCT unit_id_vch, unit_id_potr FROM card_mc_requ) cr
+								ON cr.unit_id_vch = gm.unit_id
+						%%|WHERE gm.god_goz=%%god%%
+						GROUP BY 1,2,3"
+					sum="num_rasp,num_per_rem">
+<!-- Ссылки на группы и доп. выборки -->
+			<Turn key="key_field_" on="is_pred_mo,unit_id_potr"/>
+		</Query>
+
+
+<!-- Выборка MAIN, поворот по кварталам и месяцам -->
+		<Query name="MAIN" sqlSelect="SELECT cr.nomen_id, 
+						st.partition_id,
+						n.short_name,
+						CASE vch.cat_main_id WHEN 1 THEN 'PG' ELSE 'OT' END as is_cpg,
+						cr.unit_id_potr,
+						SUM(cr.num_requ) as num_requ
+						FROM card_mc_requ cr
+							JOIN kcbc vch ON cr.unit_id_vch=vch.unit_id
+							JOIN nomen_list n USING(nomen_id)
+							JOIN template_nomen_list tn ON cr.nomen_id = tn.nomen_id
+							JOIN struct_template st ON tn.partition_id=st.partition_id AND tn.rec_part_num=st.rec_part_num
+						%%|WHERE god=%%god%%
+						%%| st.partition_id IN (SELECT partition_id FROM part_tree(%%part_id%%)) 
+/*AND cr.nomen_id = 3813*/
+						GROUP BY 1,2,3,4,5
+						ORDER BY 1,4,5"
+					sum="num_requ">
+<!-- Ссылки на группы и доп. выборки -->
+			<Group to="part_tree" reference="partition_id"/>
+			<Link to="kcbc" reference="unit_id_potr"/>
+			<Link to="RASP" reference="nomen_id"/>
+			<Turn key="nomen_id" on="is_cpg,unit_id_potr"/>
+		</Query>
+	</QuerySections>
+
+	<StyleSections>
+		<Style for="HEAD" background-color="Beige"/>
+		<Style for="part_tree" background-color="LemonChiffon"/>
+	</StyleSections>
+
+	<Defines>
+		<Define name="colPotr" expr="%%COUNT.kcbc%%"/>
+	</Defines>
+
+	<BandSections>
+<!-- Шаблон заголовка таблицы -->
+		<Band for="HEAD">
+			<Cell text="Наименование техники связи" rowspan="4"/>
+			<Cell text="Всего за Вооруженные Силы РФ" colspan="9" rowspan="2"/>
+			<Cell text="в том числе по военным округам, Видам ВС, родам войск и частям связи ЦП" colspan="(%%COUNT.kcbc%%*9)"/>
+			<BROW/>
+			<SetBand for="DATA.kcbc">
+				<Cell field="short_name" colspan="9"/>
+			</SetBand>
+			<BROW/>
+			<Cell text="Заявлено" colspan="3"/>
+			<Cell text="Предпр. МО" colspan="2"/>
+			<Cell text="Предпр. пром." colspan="2"/>
+			<Cell text="Всего" colspan="2"/>
+			<SetBand for="DATA.kcbc">
+				<Cell text="Заявлено" colspan="3"/>
+				<Cell text="Предпр. МО" colspan="2"/>
+				<Cell text="Предпр. пром." colspan="2"/>
+				<Cell text="Всего" colspan="2"/>
+			</SetBand>
+			<BROW/>
+			<TurnCells on="i_kcbc" iterate="(%%COUNT.kcbc%%+1)">
+				<Cell text="Всего"/>
+				<Cell text="Части%%BR%%посто-%%BR%%янной%%BR%%готов-%%BR%%ности"/>
+				<Cell text="Части%%BR%%сокр.%%BR%%состава,%%BR%%кадра,%%BR%%БХВТ"/>
+				<TurnCells on="i_pred" iterate="3">
+					<Cell text="Перехо-%%BR%%дящий%%BR%%ремфонд"/>
+					<Cell text="Поставка"/>
+				</TurnCells>
+			</TurnCells>
+			<BROW/>
+		</Band>
+
+<!-- Шаблоны групп teritory,store и тела (DETAL) отчета -->
+		<Band place="header" for="part_tree,MAIN" paddingLevel="10">
+
+			<SwitchBand>
+<!-- Ячейка для MAIN -->
+				<CaseBand for="MAIN">
+					<Cell text="%%short_name%%"/>
+				</CaseBand>
+				<CaseBand for="part_tree">
+					<Cell text="%%part_tree.partition_name%%"/>
+				</CaseBand>
+			</SwitchBand>
+
+			<Cell text="%%num_requ%%" class="r"/>
+			<Cell text="%%PG.num_requ%%" class="r"/>
+			<Cell text="%%OT.num_requ%%" class="r"/>
+
+			<Cell text="%%PM.num_per_rem%%" class="r"/>
+			<Cell text="%%PM.num_rasp%%" class="r"/>
+			<Cell text="%%PP.num_per_rem%%" class="r"/>
+			<Cell text="%%PP.num_rasp%%" class="r"/>
+			<Cell text="%%num_per_rem%%" class="r"/>
+			<Cell text="%%num_rasp%%" class="r"/>
+
+			<TurnCells on="kcbc">
+				<Cell expr="($row['PG*'.$iTURN_kcbc]['num_requ']+$row['OT*'.$iTURN_kcbc]['num_requ'])" class="r"/>
+				<Cell expr="$row['PG*'.$iTURN_kcbc]['num_requ']" class="r"/>
+				<Cell expr="$row['OT*'.$iTURN_kcbc]['num_requ']" class="r"/>
+	
+				<Cell text="$row['PM*'.$iTURN_kcbc]['num_per_rem']" class="r"/>
+				<Cell text="$row['PM*'.$iTURN_kcbc]['num_rasp']" class="r"/>
+				<Cell text="$row['PP*'.$iTURN_kcbc]['num_per_rem']" class="r"/>
+				<Cell text="$row['PP*'.$iTURN_kcbc]['num_rasp']" class="r"/>
+				<Cell text="$row['num_per_rem']" class="r"/>
+				<Cell text="$row['num_rasp']" class="r"/>
+			</TurnCells>
+			
+			<BROW/>
+		</Band>
+	</BandSections>
+
+	<Print/>
+
+</Report>

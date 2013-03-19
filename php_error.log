@@ -1,0 +1,269 @@
+[23-Sep-2010 13:03:47] PHP Fatal error:  Uncaught exception 'Exception' with message '<BR>CreateConnect (pgsql:host=localhost;dbname=Naklad) user='postgres' ERROR: SQLSTATE[08006] [7] could not connect to server: Connection refused (0x0000274D/10061)
+	Is the server running on host "localhost" and accepting
+	TCP/IP connections on port 5432?' in D:\local\htdocs\Report\Class.Query.php:22
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(113): CQuery->CQuery(Array)
+#1 D:\local\htdocs\Report\exec.Report.php(22): ReportBuilder->ReportBuilder()
+#2 {main}
+  thrown in D:\local\htdocs\Report\Class.Query.php on line 22
+[23-Sep-2010 13:13:22] PHP Fatal error:  Uncaught exception 'Exception' with message '<BR>CreateConnect (pgsql:host=localhost;dbname=Naklad) user='postgres' ERROR: SQLSTATE[08006] [7] could not connect to server: Connection refused (0x0000274D/10061)
+	Is the server running on host "localhost" and accepting
+	TCP/IP connections on port 5432?' in D:\local\htdocs\Report\Class.Query.php:22
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(113): CQuery->CQuery(Array)
+#1 D:\local\htdocs\Report\exec.Report.php(22): ReportBuilder->ReportBuilder()
+#2 {main}
+  thrown in D:\local\htdocs\Report\Class.Query.php on line 22
+[23-Sep-2010 13:26:06] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (MAIN) <br>SELECT st.id_ter as id_ter, sd.id_store as id_store, fio_pers, id_pers as id_pers,      EXTRACT(quarter FROM r.date_realiz) as id_quarter,EXTRACT(month FROM r.date_realiz) as id_month       , sum(num_realiz) as num_realiz       , sum(sum_realiz) as sum_realiz       FROM realiz.realizations r        JOIN realiz.personal ps USING(id_pers)        JOIN realiz.subdivision sd USING(id_subdiv)        JOIN realiz.store st USING(id_store) --WHERE EXTRACT(month FROM r.date_realiz) = 2        GROUP BY st.id_ter,sd.id_store,fio_pers,id_pers,EXTRACT(quarter FROM r.date_realiz),EXTRACT(month FROM r.date_realiz)        ORDER BY st.id_ter,sd.id_store,fio_pers       /*LIMIT 384*/<br><br>Ошибка чтения из БД: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "st.id_ter" must appear in the GROUP BY clause or be used in an aggregate function' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 14:11:05] PHP Fatal error:  Uncaught exception 'Exception' with message '<BR>CreateConnect (pgsql:host=localhost;dbname=Naklad) user='postgres' ERROR: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "postgres"' in D:\local\htdocs\Report\Class.Query.php:22
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(113): CQuery->CQuery(Array)
+#1 D:\local\htdocs\Report\exec.Report.php(22): ReportBuilder->ReportBuilder()
+#2 {main}
+  thrown in D:\local\htdocs\Report\Class.Query.php on line 22
+[09-Mar-2011 14:11:38] PHP Fatal error:  Uncaught exception 'Exception' with message '<BR>CreateConnect (pgsql:host=localhost;dbname=Naklad) user='postgres' ERROR: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "postgres"' in D:\local\htdocs\Report\Class.Query.php:22
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(113): CQuery->CQuery(Array)
+#1 D:\local\htdocs\Report\exec.Report.php(22): ReportBuilder->ReportBuilder()
+#2 {main}
+  thrown in D:\local\htdocs\Report\Class.Query.php on line 22
+[09-Mar-2011 14:13:02] PHP Fatal error:  Uncaught exception 'Exception' with message '<BR>CreateConnect (pgsql:host=localhost;dbname=Naklad) user='postgres' ERROR: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "postgres"' in D:\local\htdocs\Report\Class.Query.php:22
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(113): CQuery->CQuery(Array)
+#1 D:\local\htdocs\Report\exec.Report.php(22): ReportBuilder->ReportBuilder()
+#2 {main}
+  thrown in D:\local\htdocs\Report\Class.Query.php on line 22
+[09-Mar-2011 14:13:04] PHP Fatal error:  Uncaught exception 'Exception' with message '<BR>CreateConnect (pgsql:host=localhost;dbname=Naklad) user='postgres' ERROR: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "postgres"' in D:\local\htdocs\Report\Class.Query.php:22
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(113): CQuery->CQuery(Array)
+#1 D:\local\htdocs\Report\exec.Report.php(22): ReportBuilder->ReportBuilder()
+#2 {main}
+  thrown in D:\local\htdocs\Report\Class.Query.php on line 22
+[09-Mar-2011 14:13:24] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (quarter) <br>SELECT n as key_field_, concat(n,'й кв.','') as naim FROM generate_series WHERE n <= 4<br><br>Ошибка чтения из БД: SQLSTATE[22021]: Character not in repertoire: 7 ERROR:  invalid byte sequence for encoding "UTF8": 0xe920ea' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT n as key...', Array, 'quarter')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('quarter')
+#2 D:\local\htdocs\Report\Class.Report.php(907): ReportBuilder->getDataQuery('quarter', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2850): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3042): ReportBuilder->endElement(Resource id #7, 'QuerySections')
+#5 [internal function]: endElement(Resource id #7, 'QuerySections')
+#6 D:\local\htdocs\Report\Class.Report.php(3001): xml_parse(Resource id #7, '<Report xmlns:x...')
+#7 D:\local\htdocs\Report\ex in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 14:14:26] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (quarter) <br>SELECT n as key_field_, concat(n,'й кв.','') as naim FROM generate_series WHERE n <= 4<br><br>Ошибка чтения из БД: SQLSTATE[42883]: Undefined function: 7 ERROR:  function concat(integer, unknown, unknown) does not exist
+LINE 1: SELECT n as key_field_, concat(n,'й кв.','') as naim FROM ge...
+                                ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT n as key...', Array, 'quarter')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('quarter')
+#2 D:\local\htdocs\Report\Class.Report.php(907): ReportBuilder->getDataQuery('quarter', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2850): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3042): ReportBuilder->endElement(Resource id #7, 'Qu in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 14:17:00] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (quarter) <br>SELECT n as key_field_, concat(cast(n as char(2),'й кв.','') as naim FROM generate_series WHERE n <= 4<br><br>Ошибка чтения из БД: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at or near ","
+LINE 1: SELECT n as key_field_, concat(cast(n as char(2),'й кв.','')...
+                                                        ^' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT n as key...', Array, 'quarter')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('quarter')
+#2 D:\local\htdocs\Report\Class.Report.php(907): ReportBuilder->getDataQuery('quarter', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2850): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3042): ReportBuilder->endElement(Resource id #7, 'QuerySections')
+#5 [internal function]: endElement(Resource id #7, 'QuerySections')
+#6 D:\local\htdocs\ in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 14:17:26] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (month) <br>SELECT n as key_field_, monthname(cast(concat('1990-',n,'-01') as date)) as naim      FROM generate_series<br><br>Ошибка чтения из БД: SQLSTATE[42883]: Undefined function: 7 ERROR:  function concat(unknown, integer, unknown) does not exist
+LINE 1: SELECT n as key_field_, monthname(cast(concat('1990-',n,'-01...
+                                               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT n as key...', Array, 'month')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('month')
+#2 D:\local\htdocs\Report\Class.Report.php(907): ReportBuilder->getDataQuery('month', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2850): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3042): ReportBuilder->end in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 14:18:42] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (month) <br>SELECT n as key_field_, monthname(cast(concat('1990-',n,'-01') as date)) as naim      FROM generate_series<br><br>Ошибка чтения из БД: SQLSTATE[42883]: Undefined function: 7 ERROR:  function concat(unknown, integer, unknown) does not exist
+LINE 1: SELECT n as key_field_, monthname(cast(concat('1990-',n,'-01...
+                                               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT n as key...', Array, 'month')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('month')
+#2 D:\local\htdocs\Report\Class.Report.php(907): ReportBuilder->getDataQuery('month', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2850): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3042): ReportBuilder->end in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 14:19:12] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (month) <br>SELECT n as key_field_, monthname(cast(concat('1990-',n,'-01') as date)) as naim      FROM generate_series<br><br>Ошибка чтения из БД: SQLSTATE[42883]: Undefined function: 7 ERROR:  function concat(unknown, integer, unknown) does not exist
+LINE 1: SELECT n as key_field_, monthname(cast(concat('1990-',n,'-01...
+                                               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT n as key...', Array, 'month')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('month')
+#2 D:\local\htdocs\Report\Class.Report.php(907): ReportBuilder->getDataQuery('month', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2850): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3042): ReportBuilder->end in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 14:20:38] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (quarter) <br>SELECT n as key_field_, concat(n,'й кв.','') as naim FROM generate_series WHERE n <= 4<br><br>Ошибка чтения из БД: SQLSTATE[42883]: Undefined function: 7 ERROR:  function concat(integer, unknown, unknown) does not exist
+LINE 1: SELECT n as key_field_, concat(n,'й кв.','') as naim FROM ge...
+                                ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT n as key...', Array, 'quarter')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('quarter')
+#2 D:\local\htdocs\Report\Class.Report.php(907): ReportBuilder->getDataQuery('quarter', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2850): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3042): ReportBuilder->endElement(Resource id #7, 'Qu in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 14:21:27] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (quarter) <br>SELECT n as key_field_, concat(n,'й кв.','') as naim FROM generate_series WHERE n <= 4<br><br>Ошибка чтения из БД: SQLSTATE[42883]: Undefined function: 7 ERROR:  function concat(integer, unknown, unknown) does not exist
+LINE 1: SELECT n as key_field_, concat(n,'й кв.','') as naim FROM ge...
+                                ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT n as key...', Array, 'quarter')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('quarter')
+#2 D:\local\htdocs\Report\Class.Report.php(907): ReportBuilder->getDataQuery('quarter', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2850): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3042): ReportBuilder->endElement(Resource id #7, 'Qu in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 14:22:11] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2430
+[09-Mar-2011 14:36:16] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2430
+[09-Mar-2011 14:36:48] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2430
+[09-Mar-2011 14:37:52] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2431
+[09-Mar-2011 14:37:53] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2431
+[09-Mar-2011 14:38:47] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2431
+[09-Mar-2011 14:38:48] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2431
+[09-Mar-2011 14:40:21] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2431
+[09-Mar-2011 14:40:23] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2431
+[09-Mar-2011 14:41:46] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2431
+[09-Mar-2011 14:41:48] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2431
+[09-Mar-2011 14:43:06] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2437
+[09-Mar-2011 14:43:07] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2437
+[09-Mar-2011 14:47:28] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2439
+[09-Mar-2011 14:47:29] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2439
+[09-Mar-2011 14:49:03] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2439
+[09-Mar-2011 14:50:42] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2438
+[09-Mar-2011 14:50:43] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2438
+[09-Mar-2011 14:52:01] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2438
+[09-Mar-2011 14:52:02] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2438
+[09-Mar-2011 14:53:25] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2438
+[09-Mar-2011 14:53:26] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2438
+[09-Mar-2011 14:54:33] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2440
+[09-Mar-2011 14:54:34] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2440
+[09-Mar-2011 14:55:06] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2441
+[09-Mar-2011 14:55:07] PHP Warning:  Invalid argument supplied for foreach() in D:\local\htdocs\Report\Class.Report.php on line 2441
+[09-Mar-2011 15:23:27] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (quarter) <br>SELECT n as key_field_, concat(n,'й кв.','') as naim FROM generate_series WHERE n <= 4<br><br>Ошибка чтения из БД: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "generate_series" does not exist
+LINE 1: ... as key_field_, concat(n,'й кв.','') as naim FROM generate_s...
+                                                             ^' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT n as key...', Array, 'quarter')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('quarter')
+#2 D:\local\htdocs\Report\Class.Report.php(914): ReportBuilder->getDataQuery('quarter', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2857): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3049): ReportBuilder->endElement(Resource id #5, 'QuerySections')
+#5 [internal function]: endElement(Resource id #5, 'QuerySections')
+#6 D:\loca in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 15:24:21] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (quarter) <br>SELECT n as key_field_, concat(cast(n as char),'й кв.','') as naim FROM generate_series WHERE n <= 4<br><br>Ошибка чтения из БД: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "generate_series" does not exist
+LINE 1: ..., concat(cast(n as char),'й кв.','') as naim FROM generate_s...
+                                                             ^' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT n as key...', Array, 'quarter')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('quarter')
+#2 D:\local\htdocs\Report\Class.Report.php(914): ReportBuilder->getDataQuery('quarter', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2857): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3049): ReportBuilder->endElement(Resource id #5, 'QuerySections')
+#5 [internal function]: endElement(Resource id #5, 'QuerySection in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 15:25:36] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (quarter) <br>SELECT n as key_field_, concat(cast(n as char),'й кв.','') as naim FROM generate_series WHERE n <= 4<br><br>Ошибка чтения из БД: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "generate_series" does not exist
+LINE 1: ..., concat(cast(n as char),'й кв.','') as naim FROM generate_s...
+                                                             ^' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT n as key...', Array, 'quarter')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('quarter')
+#2 D:\local\htdocs\Report\Class.Report.php(914): ReportBuilder->getDataQuery('quarter', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2857): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3049): ReportBuilder->endElement(Resource id #5, 'QuerySections')
+#5 [internal function]: endElement(Resource id #5, 'QuerySection in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 15:29:48] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (store) <br>SELECT * FROM (SELECT *, id_store as key_field_ FROM store) s WHERE key_field_ IN ( 1,2,3) ORDER BY naim_store<br><br>Ошибка чтения из БД: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "store" does not exist
+LINE 1: ...ECT * FROM (SELECT *, id_store as key_field_ FROM store) s W...
+                                                             ^' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT * FROM (...', Array, 'store')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('store')
+#2 D:\local\htdocs\Report\Class.Report.php(914): ReportBuilder->getDataQuery('store', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2857): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3049): ReportBuilder->endElement(Resource id #5, 'QuerySections')
+#5 [internal function]: endElement(Resource id #5, 'QuerySections')
+#6 D in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 15:32:27] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (store) <br>SELECT * FROM (SELECT *, id_store as key_field_ FROM store) s WHERE key_field_ IN ( 1,2,3) ORDER BY naim_store<br><br>Ошибка чтения из БД: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "store" does not exist
+LINE 1: ...ECT * FROM (SELECT *, id_store as key_field_ FROM store) s W...
+                                                             ^' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT * FROM (...', Array, 'store')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('store')
+#2 D:\local\htdocs\Report\Class.Report.php(914): ReportBuilder->getDataQuery('store', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2857): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3049): ReportBuilder->endElement(Resource id #5, 'QuerySections')
+#5 [internal function]: endElement(Resource id #5, 'QuerySections')
+#6 D in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 15:32:30] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (store) <br>SELECT * FROM (SELECT *, id_store as key_field_ FROM store) s WHERE key_field_ IN ( 1,2,3) ORDER BY naim_store<br><br>Ошибка чтения из БД: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "store" does not exist
+LINE 1: ...ECT * FROM (SELECT *, id_store as key_field_ FROM store) s W...
+                                                             ^' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT * FROM (...', Array, 'store')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('store')
+#2 D:\local\htdocs\Report\Class.Report.php(914): ReportBuilder->getDataQuery('store', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2857): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3049): ReportBuilder->endElement(Resource id #5, 'QuerySections')
+#5 [internal function]: endElement(Resource id #5, 'QuerySections')
+#6 D in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 15:32:50] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (store) <br>SELECT * FROM (SELECT *, id_store as key_field_ FROM store) s WHERE key_field_ IN ( 1,2,3) ORDER BY naim_store<br><br>Ошибка чтения из БД: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "store" does not exist
+LINE 1: ...ECT * FROM (SELECT *, id_store as key_field_ FROM store) s W...
+                                                             ^' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT * FROM (...', Array, 'store')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('store')
+#2 D:\local\htdocs\Report\Class.Report.php(914): ReportBuilder->getDataQuery('store', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2857): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3049): ReportBuilder->endElement(Resource id #5, 'QuerySections')
+#5 [internal function]: endElement(Resource id #5, 'QuerySections')
+#6 D in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 15:34:22] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (store) <br>SELECT * FROM (SELECT *, id_store as key_field_ FROM store) s WHERE key_field_ IN ( 1,2,3) ORDER BY naim_store<br><br>Ошибка чтения из БД: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "store" does not exist
+LINE 1: ...ECT * FROM (SELECT *, id_store as key_field_ FROM store) s W...
+                                                             ^' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT * FROM (...', Array, 'store')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('store')
+#2 D:\local\htdocs\Report\Class.Report.php(914): ReportBuilder->getDataQuery('store', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2857): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3049): ReportBuilder->endElement(Resource id #5, 'QuerySections')
+#5 [internal function]: endElement(Resource id #5, 'QuerySections')
+#6 D in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 15:34:38] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (store) <br>SELECT * FROM (SELECT *, id_store as key_field_ FROM store) s WHERE key_field_ IN ( 1,2,3) ORDER BY naim_store<br><br>Ошибка чтения из БД: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "store" does not exist
+LINE 1: ...ECT * FROM (SELECT *, id_store as key_field_ FROM store) s W...
+                                                             ^' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT * FROM (...', Array, 'store')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('store')
+#2 D:\local\htdocs\Report\Class.Report.php(914): ReportBuilder->getDataQuery('store', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2857): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3049): ReportBuilder->endElement(Resource id #5, 'QuerySections')
+#5 [internal function]: endElement(Resource id #5, 'QuerySections')
+#6 D in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 15:34:53] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (store) <br>SELECT * FROM (SELECT *, id_store as key_field_ FROM store) s WHERE key_field_ IN ( 1,2,3) ORDER BY naim_store<br><br>Ошибка чтения из БД: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "store" does not exist
+LINE 1: ...ECT * FROM (SELECT *, id_store as key_field_ FROM store) s W...
+                                                             ^' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT * FROM (...', Array, 'store')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('store')
+#2 D:\local\htdocs\Report\Class.Report.php(914): ReportBuilder->getDataQuery('store', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2857): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3049): ReportBuilder->endElement(Resource id #5, 'QuerySections')
+#5 [internal function]: endElement(Resource id #5, 'QuerySections')
+#6 D in D:\local\htdocs\Report\Class.Query.php on line 93
+[09-Mar-2011 15:35:37] PHP Fatal error:  Uncaught exception 'Exception' with message '<br>Query (store) <br>SELECT * FROM (SELECT *, id_store as key_field_ FROM store) s WHERE key_field_ IN ( 1,2,3) ORDER BY naim_store<br><br>Ошибка чтения из БД: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "store" does not exist
+LINE 1: ...ECT * FROM (SELECT *, id_store as key_field_ FROM store) s W...
+                                                             ^' in D:\local\htdocs\Report\Class.Query.php:93
+Stack trace:
+#0 D:\local\htdocs\Report\Class.Report.php(388): CQuery->execQuery('SELECT * FROM (...', Array, 'store')
+#1 D:\local\htdocs\Report\Class.Report.php(215): ReportBuilder->execDataQuery('store')
+#2 D:\local\htdocs\Report\Class.Report.php(914): ReportBuilder->getDataQuery('store', Array)
+#3 D:\local\htdocs\Report\Class.Report.php(2857): ReportBuilder->prepareData()
+#4 D:\local\htdocs\Report\Class.Report.php(3049): ReportBuilder->endElement(Resource id #5, 'QuerySections')
+#5 [internal function]: endElement(Resource id #5, 'QuerySections')
+#6 D in D:\local\htdocs\Report\Class.Query.php on line 93

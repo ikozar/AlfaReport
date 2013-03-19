@@ -1,0 +1,257 @@
+/*@import "Print.css";*/
+/************ Основные стили ************/
+.ED_DIV {
+	position: absolute;
+	background-color: LavenderBlush;
+}
+
+.ED_DIV input {
+	border-top: 1.5pt solid darkgray;
+	border-left: 1.5pt solid darkgray;
+	border-bottom: 0.5pt solid lightgray;
+	border-left: 0.5pt solid lightgray;
+	max-width: 100%;
+	background-color: LightGoldenRodYellow;
+}
+
+.MainTable {
+	border-collapse: collapse;
+	border-style:  none;
+}
+.MainTable th, .HEAD {
+	border: 1px solid black;
+
+	font-family: "Times New Roman";
+	font-size: small;
+	font-weight: bold;
+	font-style: italic;
+
+   padding: 2 1 2 7;
+	text-align: center;
+}
+.MainTable td {
+	border: 1px solid black;
+	padding: 1px 1px 1px 6px;
+}
+
+.visibExp div, .visibClp div {
+	background-repeat: no-repeat;
+	background-position: 1px 1px;
+	border: 1px solid black;
+	vertical-align: bottom;
+	float: right;
+	width: 14px;
+	height: 14px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.visibExp .visibRow {
+	background-image: url(image/ns-collapse.gif);
+	background-color: white;
+}
+
+.visibClp .visibRow {
+	background-image: url(image/ns-expand.gif);
+	background-color: lightblue;
+}
+
+.visibExp .visibCol {
+	background-image: url(image/collapse.gif);
+	background-color: white;
+}
+
+.visibClp .visibCol {
+	background-image: url(image/expand.gif);
+	background-color: lightblue;
+}
+
+body {
+	background-color: white;
+	font-family: "Times New Roman";
+	font-size: small;
+}
+
+h1 {
+	font-size: large;
+	font-weight: bold;
+	text-align:  center;
+}
+
+h2 {
+	font-size: medium;
+	font-weight: bold;
+	text-align:  center;
+	margin-bottom: 3px;
+}
+
+.MainInfo {
+	font-size: medium;
+	font-weight: bold;
+	text-align:  center;
+	text-decoration: underline;
+}
+.LongTitle {
+	font-size: medium;
+	font-weight: bold;
+	text-align:  center;
+}
+.MainInfoLegenda {
+	font-size: x-small;
+	font-weight: normal;
+	text-align:  center;
+}
+.TableLegenda, .MainUnitInfo {
+	font-size: small;
+	text-align:  right;
+}
+
+.BaseFont{
+	font-family: "Times New Roman";
+	font-size: small;
+}
+
+/*
+.ColCaption {
+	font-family: "Times New Roman";
+	font-size: small;
+	font-weight: bold;
+
+    padding: 5px 2px;
+	text-align: center;
+}
+*/
+.HEADHLine {
+	height: 0px;
+	margin: 4px 0px 3px;
+
+    border-style: none;
+    border-top:   1px solid black;
+
+	width: 100%;
+}
+
+.MAIN {
+	font-family: "Times New Roman";
+	font-size: small;
+    padding: 2px 5px 2px;
+}
+
+/************ Группировка строк таблицы ************/
+/*
+.RowGrpHead_1,
+.RowGrpHead_2,
+.RowGrpHead_3,
+.RowGrpHead_4,
+.RowGrpHead_5,
+.RowGrpHead_6,
+.RowGrpHead_7
+{
+	font-family: "Times New Roman";
+	font-size: small;
+	font-weight: bold;
+
+   padding: 5px;
+}
+*/
+.RowGrpFoot_1,
+.RowGrpFoot_2,
+.RowGrpFoot_3,
+.RowGrpFoot_4,
+.RowGrpFoot_5,
+.RowGrpFoot_6,
+.RowGrpFoot_7
+{
+	font-family: "Times New Roman";
+	font-size: small;
+}
+
+
+.FootSpace td {
+	height: 10px;
+	padding: 0px;
+}
+
+/************ Заголовки для строк ************/
+.RowCaption_1,
+.RowCaption_2,
+.RowCaption_3,
+.RowCaption_4,
+.RowCaption_5,
+.RowCaption_6,
+.RowCaption_7,
+.RowCaption_8,
+.RowCaption_9
+{
+	font-family: "Times New Roman";
+	font-size: medium;
+	font-weight: normal;
+	padding: 0px 2px;
+	text-align: left;
+}
+/*
+.RowCaption_2 { padding-left:  9px; }
+.RowCaption_3 { padding-left: 16px; }
+.RowCaption_4 { padding-left: 23px; }
+.RowCaption_5 { padding-left: 30px; }
+.RowCaption_6 { padding-left: 37px; }
+.RowCaption_7 { padding-left: 44px; }
+.RowCaption_8 { padding-left: 51px; }
+.RowCaption_9 { padding-left: 58px; }
+*/
+
+/************ Ссылки, Кнопки ************/
+/*
+a {
+   text-decoration: none;
+	color: black;
+}
+*/
+/************ Стили для тонкой настроки ************/
+
+.sm { /* small: компактная ячейка */
+	padding-bottom: 0pt;
+	padding-top:    0pt;
+	font-size: x-small;
+}
+
+.ssm { /* super small: сверх-компактная ячейка */
+	/*font-size: 7px;*/
+	font-size: xx-small;
+	padding-bottom: 0px;
+	padding-top:    0px;
+}
+
+.no_b { /* no border */
+	border-style: none;
+}
+
+.nw { white-space: nowrap; }
+
+.j { text-align: justify; }
+.r { text-align: right;   }
+.c { text-align: center;  }
+.l { text-align: left;    }
+
+.bl { vertical-align: baseline; }
+.b  { vertical-align: bottom;   }
+.m  { vertical-align: middle;   }
+.t  { vertical-align: top;      }
+
+.italic  { font-style: italic;}
+.bold  { font-weight: bold;}
+
+.UpperCase {
+	text-transform: uppercase;
+}
+.LongLetSpace {
+	letter-spacing: 0.2em;
+}
+
+.page_break_after {
+	page-break-after: always;
+}
+
+.page_break_before {
+	page-break-before: always;
+}

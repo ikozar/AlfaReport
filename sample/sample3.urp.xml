@@ -1,0 +1,146 @@
+<Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\local\htdocs\Report\schema.urp.xsd">
+	<QuerySections>
+		<Query name="delivery" sum="sum_deliv" type="DATA"
+			sqlSubSelect="SELECT id_ter as key_field_, id_ter, id_quarter, sum(sum_deliv) as sum_deliv
+				FROM realiz.delivery
+				GROUP BY 1,2,3
+				ORDER BY 1">
+			<Turn key="id_ter" on="id_quarter"/>
+		</Query>
+		<Query name="teritory" table="realiz.teritory" fName="naim_ter" fKeyUp="id_ter_parent" fRubr="rub_terit" order="rub_terit">
+			<Link to="delivery" reference="id_ter"/>
+		</Query>
+		<Query name="chief" table="realiz.personal" fName="fio_pers" type="SET"
+			sqlSubSelect="SELECT s.id_store as key_field_, p.fio_pers, p.pr_rukovod,
+				CASE p.pr_rukovod WHEN 1 THEN 'Начальник' ELSE 'Заместитель' END as dolz
+				FROM realiz.subdivision s JOIN realiz.personal p USING(id_subdiv)
+				WHERE p.pr_rukovod > 0 AND s.id_subdiv_parent = 0"/>
+		<Query name="store" table="realiz.store" fName="naim_store">
+			<Link to="chief" reference="id_store"/>
+		</Query>
+		<Query name="subdivision" table="realiz.subdivision" fName="naim_subdiv">
+			<Link to="store" reference="id_store"/>
+		</Query>
+		<Query name="personal" table="realiz.personal" fName="fio_pers">
+			<Link to="subdivision" reference="id_subdiv"/>
+		</Query>
+		<Query name="quarter" table="realiz.quarter" fName="naim" sqlSelect="SELECT n as key_field_, concat(cast(n as char),'й кв.','') as naim FROM generate_series WHERE n &lt;= 4"/>
+		<Query name="month" table="realiz.month" fName="naim" sqlSelect="SELECT n as key_field_, monthname(cast(concat('1990-',cast(n as char(2)),'-01') as date)) as naim 
+				FROM generate_series"/>
+		<Query name="MAIN" sqlSelect="SELECT st.id_ter as id_ter, sd.id_store as id_store, fio_pers, id_pers as id_pers,
+					EXTRACT(quarter FROM r.date_realiz) as id_quarter,EXTRACT(month FROM r.date_realiz) as id_month
+						, sum(num_realiz) as num_realiz
+						, sum(sum_realiz) as sum_realiz
+						FROM realiz.realizations r
+							JOIN realiz.personal ps USING(id_pers)
+							JOIN realiz.subdivision sd USING(id_subdiv)
+							JOIN realiz.store st USING(id_store)
+						/*WHERE EXTRACT(month FROM r.date_realiz) = 2*/
+						 GROUP BY st.id_ter,sd.id_store,fio_pers,id_pers,EXTRACT(quarter FROM r.date_realiz),EXTRACT(month FROM r.date_realiz)
+						 ORDER BY st.id_ter,sd.id_store,fio_pers
+						/*LIMIT 384*/" sum="sum_realiz">
+			<Group to="teritory" reference="id_ter"/>
+			<Group to="store" reference="id_store">
+				<Sort order="sum_realiz" reverse="true"/>
+			</Group>
+			<Link to="personal" reference="id_pers"/>
+			<Link to="quarter" reference="id_quarter"/>
+			<Link to="month" reference="id_month"/>
+			<Turn key="id_store,id_pers" on="id_quarter,id_month"/>
+		</Query>
+	</QuerySections>
+	
+	<StyleSections>
+		<Style for="teritory_1" background-color="Tan"/>
+		<Style for="teritory_2" background-color="Wheat"/>
+		<Style for="teritory_3" background-color="Khaki"/>
+		<Style for="teritory_4" background-color="LemonChiffon"/>
+		<Style for="store" background-color="Azure"/>
+		<Style for="HEAD" background-color="Beige"/>
+	</StyleSections>
+	
+	<BandSections>
+		<Band for="HEAD">
+			<Cell text="Фирма, руководство" rowspan="3"/>
+			<Cell text="Сотрудник (отдел)" rowspan="3"/>
+			<Cell text="Объем поставок" rowspan="3"/>
+			<Cell text="Сумма продаж" rowspan="3"/>
+			<TurnCells on="level">
+				<Expr>
+						$colSpan = %%TURN.mCount%%+3;
+					</Expr>
+				<Cell colspan="$colSpan">
+					<CheckVisibility mask="1001"/>
+						%%TURNNAME%%
+					</Cell>
+			</TurnCells>
+			<BROW/>
+			<TurnCells on="level">
+				<Cell text="Поставлено" rowspan="2"/>
+				<Cell text="Продано" rowspan="2"/>
+				<Cell text="%" rowspan="2"/>
+				<Cell text="Продажи по месяцам" colspan="%%TURN.mCount%%"/>
+			</TurnCells>
+			<BROW/>
+			<TurnCells on="level">
+				<TurnCells>
+					<Cell text="%%TURNNAME%%"/>
+				</TurnCells>
+			</TurnCells>
+			<BROW/>
+		</Band>
+		<Band place="header" for="teritory,store,subdivision,MAIN" paddingLevel="10">
+			<SwitchBand>
+				<CaseBand for="personal">
+					<Cell text="%%name%%-%%GROUP_DATA.id_subdiv%%-%%personal.subdivision.naim_subdiv%%-%%GROUP_DATA.subdivision.store.naim_store%% (%%LevelTotal%%)" style="padding-left: %%PAD_LEVEL%%;"/>
+				</CaseBand>
+				<CaseBand for="MAIN">
+					<Cell cellNumber="2"><![CDATA[
+							<span class="nw">%%NOMROW%%. %%personal.fio_pers%%</span>%%BR%%(%%personal.subdivision.naim_subdiv%%)
+						]]></Cell>
+				</CaseBand>
+				<CaseBand for="store">
+					<Cell class=" nw t" rowspan="%%RCOUNT1%%"><![CDATA[
+							%%name%% (%%LevelTotal%%)<BR/>
+						]]><SetBand for="chief" separate=",%%BR%%" text="%%dolz%% %%fio_pers%%"/>
+					</Cell>
+					<Cell text="%%SUM%%"/>
+				</CaseBand>
+				<CaseBand for="other">
+					<Cell colspan="2" style="padding-left: %%PAD_LEVEL%%px; ">
+						<CheckVisibility/>
+						%%name%%
+					</Cell>
+				</CaseBand>
+			</SwitchBand>
+			<SwitchBand>
+				<CaseBand for="teritory">
+					<Cell text="%%sum_deliv%%" type="float"/>
+				</CaseBand>
+				<CaseBand for="other">
+					<Cell/>
+				</CaseBand>
+			</SwitchBand>
+			<Cell field="sum_realiz" type="float"/>
+			<TurnCells on="level">
+				<SwitchBand>
+					<CaseBand for="teritory">
+						<Cell text="%%TURNINDEX.sum_deliv%%" type="float"/>
+						<Cell text="%%TURNINDEX.sum_realiz%%" type="float"/>
+						<Cell expr="(%%TURNINDEX.sum_deliv%% ? %%TURNINDEX.sum_realiz%%/%%TURNINDEX.sum_deliv%%*100 : 0)" type="float"/>
+					</CaseBand>
+					<CaseBand for="other">
+						<Cell/>
+						<Cell text="%%TURNINDEX.sum_realiz%%" type="float"/>
+						<Cell/>
+					</CaseBand>
+				</SwitchBand>
+				<TurnCells>
+					<Cell text="%%TURNINDEX.sum_realiz%%" type="float"/>
+				</TurnCells>
+			</TurnCells>
+			<BROW/>
+		</Band>
+	</BandSections>
+	<Print/>
+</Report>

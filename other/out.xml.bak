@@ -1,0 +1,587 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:fo="http://www.w3.org/1999/XSL/Format"><Styles><Style ss:ID="Default" ss:Name="Default"><Alignment ss:Vertical="Top"/></Style><Style ss:ID="ta1"/></Styles>
+
+<ss:Worksheet ss:Name="List1"><Table ss:StyleID="ta1">
+
+<Row>
+
+
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="2"><Data ss:Type="String">Усл.номер</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="2"><Data ss:Type="String">Наименованиесредств связи</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="2"><Data ss:Type="String">Номенкла-турный номер,код КВТ</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="2"><Data ss:Type="String">ед.учета</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeAcross="1"><Data ss:Type="String">потребность</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="2"><Data ss:Type="String">состоя-ло</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeAcross="1"><Data ss:Type="String">движение за отчетный период</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeAcross="3"><Data ss:Type="String">состоит в наличии1, 2, 3 категории</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeAcross="4"><Data ss:Type="String">кроме того</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeAcross="1" ss:MergeDown="1"><Data ss:Type="String">недостает или излишествует( -/+ )</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="1" ss:Index="5"><Data ss:Type="String">наособыйпериод</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="1"><Data ss:Type="String">наобычныйпериод</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="1" ss:Index="8"><Data ss:Type="String">прибы-ло</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="1"><Data ss:Type="String">убыло</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="1"><Data ss:Type="String">всего</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="1"><Data ss:Type="String">в НЗ</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="1"><Data ss:Type="String">на теку-щем дово-льствии</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="1"><Data ss:Type="String">подмен-ный фонд2-3 кат.</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeDown="1"><Data ss:Type="String">в ЗЦ</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeAcross="1"><Data ss:Type="String">4 категории</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD" ss:MergeAcross="1"><Data ss:Type="String">5 категории</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="ColCaption HEAD" ss:Index="15"><Data ss:Type="String">всего</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">в т.ч.кап. рем.</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">всего</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">в т.ч.списано</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">на особыйпериод</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">на обыч.период</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-1-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-2-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-3-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-4-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-5-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-6-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-7-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-8-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-9-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-10-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-11-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-12-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-13-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-14-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-15-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-16-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-17-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-18-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-19-</Data></Cell>
+<Cell ss:StyleID="ColCaption HEAD"><Data ss:Type="String">-20-</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1" ss:MergeAcross="3"><Data ss:Type="String">Комплекс АСУ дивизии "Маневр"</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">5</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">5</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">-5</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">-5</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">МП-21М2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-1</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">МП-21М (КП мсд)</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">4</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">4</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-4</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-4</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1" ss:MergeAcross="3"><Data ss:Type="String">Аппаратура ПД типа Т-244</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">33</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">33</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Т-244-2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">33</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">33</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1" ss:MergeAcross="3"><Data ss:Type="String">Узловая аппаратура ЗАС (Т-235)</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">63</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">63</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">114</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">86</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">86</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">27</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">23</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">23</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Т-235-1Б</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">3</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Т-235-1В</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">8</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">8</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">36</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">30</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">30</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">22</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">22</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Т-235-1Л</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">5</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">5</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-3</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Т-235-1М</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Т-235-1Н</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-1</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Т-235-1У</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">30</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">30</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-30</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-30</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Т-235-2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">15</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">12</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">12</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">9</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">9</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Т-235-3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">4</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">4</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">29</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">27</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">27</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">23</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">23</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Т-235-4</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">8</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">8</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">6</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Т-235-4Я</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">4</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">4</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">4</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">4</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-4</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-4</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Т-235-5</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">4</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">4</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-2</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Т-235-6</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1" ss:MergeAcross="3"><Data ss:Type="String">Радиопередатчики</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">51</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">48</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">57</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">34</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">34</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">15</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">8</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">-17</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_1"><Data ss:Type="Number">1</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2" ss:MergeAcross="3"><Data ss:Type="String">15-30 квт</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">-1</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">-1</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">ПКМ-20,"Молния-3"</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-1</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2" ss:MergeAcross="3"><Data ss:Type="String">до 5 квт</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">50</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">47</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">56</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">34</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">34</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">15</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">7</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">-16</Data></Cell>
+<Cell ss:StyleID="RowGrpHead_1 PART PART_2"><Data ss:Type="Number">2</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Вяз-М2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">7</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">7</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">5</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">3</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-7</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-5</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">ПКМ-5 ("Циклон")</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">31</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">28</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">9</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-25</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-21</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Р-136П</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-6</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">-6</Data></Cell>
+</Row><Row>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">Р-164-5С ("Полюс-5С")</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String"/></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="String">к-тов</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">42</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">28</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">28</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">12</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">2</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">22</Data></Cell>
+<Cell ss:StyleID="DataCell MAIN"><Data ss:Type="Number">34</Data></Cell>
+</Row></Table></ss:Worksheet></Workbook>
